@@ -1,24 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <span id="test">WAS</span>
 
-    <input id="file-input" type="file" />
-    <!-- You can also require other files to run in this process -->
-    <script src="./window.js"></script>
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <!-- <span id="test">WAS</span>
+  <br />
+  <input id="file-input" type="file" webkitdirectory directory multiple />
+
+  <div id='textbox' class="textbox"></div> -->
+
+  <div class="container" id='root'>
+    <div class="sidebar">
+
+      <div class="file-input">
+        <label for="file" class='file-input__label'>
+          <svg class='file-input__icon file-input__icon--folder'>
+            <use xlink:href="./assets/folder.svg#folder" />
+          </svg>
+          <span class="file-input__text">Choose a folder</span>
+        </label>
+        <input type="file" id='file' name='file' class="file-input__button" webkitdirectory directory multiple>
+      </div>
+
+      <div class="search">
+        <input type="text" id='search-input' name='search-input' placeholder='suche' class="search__input">
+        <label for='search-input' class="search__bg"></label>
+
+      </div>
+
+      <ul class="sidebar__list" id='list'>
+
+      </ul>
+    </div>
+    <div class="content">
+      <div name="output" id="output" contenteditable="true" class="content__box"></div>
+      <div class="content__menu">
+        <button class="btn">Speichern</button>
+        <button class="btn">Reset</button>
+      </div>
+    </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./window.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+
 </html>

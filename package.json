@@ -4,7 +4,10 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "starts": "electron .",
+    "watch:sass": "node-sass index.scss index.css -w",
+    "start:electron": "electron .",
+    "start": "npm-run-all --parallel start:electron watch:sass"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -18,5 +21,9 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^9.0.5"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5"
   }
 }
